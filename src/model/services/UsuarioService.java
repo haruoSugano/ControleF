@@ -3,15 +3,15 @@ package model.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.dao.DaoFactory;
+import model.dao.UsuarioDao;
 import model.entities.Usuario;
 
 public class UsuarioService {
+	
+	private UsuarioDao dao = DaoFactory.createUsuarioDao();
 
 	public List<Usuario> findAll(){
-		List<Usuario> list = new ArrayList<>();
-		list.add(new Usuario(1, "Helio", 26));
-		list.add(new Usuario(2, "Haruo", 20));
-		list.add(new Usuario(3, "Takamori", 56));
-		return list;
+		return dao.findAll();
 	}
 }
